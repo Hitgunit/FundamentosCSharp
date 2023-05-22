@@ -16,8 +16,6 @@ namespace Fundamentos.Models
 
         public int Id { get; set; }
 
-        public string Nombre { get; set; }
-        public string Cantidad { get; set; }
         public void MaxRecomendado()
         {
             Console.WriteLine("El maximo perimitido de una cerveza son 10");

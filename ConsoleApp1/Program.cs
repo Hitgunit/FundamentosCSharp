@@ -15,10 +15,22 @@ namespace ConsoleApp1
     {
         static async Task Main(string[] args)
         {
-            List<Cerveza> list = new List<Cerveza>()
+            List<Cerveza> cervezas = new List<Cerveza>()
             {
-                new Cerveza() { Alcohol = 1, }
+                new Cerveza(1, "Jorge") { Alcohol = 1, Marca="Pepsi" },
+                new Cerveza(2, "Goku") { Alcohol = 5, Marca="Seven" },
+                new Cerveza(3, "Pepe") { Alcohol = 4, Marca="Jorgel" },
+                new Cerveza(4, "Alli") { Alcohol = 3, Marca="Corona" }
             };
+
+            var cervezasOrdenadas = from d in cervezas
+                                    where d.Nombre == "Jorge" && d.Marca == "Pepsi"
+                                    select d;
+
+            foreach(var cerveza in cervezasOrdenadas)
+            {
+                Console.WriteLine($"{cerveza.Nombre}, {cerveza.Marca}");
+            }
         }
     }
 }
