@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,17 @@ using System.Threading.Tasks;
 
 namespace Fundamentos.Models
 {
-    class Cerveza : Bebida, IBebidaAlcoholica
+    class Cerveza : Bebida, IBebidaAlcoholica, IRequestable
     {
 
         public int Alcohol { get; set; }
 
         public string Marca { get; set; }
+
+        public int Id { get; set; }
+
+        public string Nombre { get; set; }
+        public string Cantidad { get; set; }
         public void MaxRecomendado()
         {
             Console.WriteLine("El maximo perimitido de una cerveza son 10");

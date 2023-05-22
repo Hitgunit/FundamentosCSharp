@@ -75,6 +75,7 @@
     <Compile Include="Models\BebidaAlcoholica.cs" />
     <Compile Include="Models\Cerveza.cs" />
     <Compile Include="Models\CervezaBD.cs" />
+    <Compile Include="Models\IRequestable.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fundamentos.Models
+namespace ConsoleApp1.Models
 {
-    public interface IBebidaAlcoholica
+    public interface IRequestable
     {
 
-        int Alcohol { get; set; }
-
-        void MaxRecomendado();
     }
 }

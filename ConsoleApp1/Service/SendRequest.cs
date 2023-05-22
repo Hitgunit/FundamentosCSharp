@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConsoleApp1.Models;
+using Fundamentos.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -9,11 +11,13 @@ using System.Threading.Tasks;
 namespace ConsoleApp1.Service
 {
     //La "T" indica que va a recibir una clase con la cual va a trabajar
-    public class SendRequest<T>
+    //El Where implementa un condicion, solo recibira a quien cumpla con la interfaz IRequetable
+    //Se pueden usar mas de una clase e igual se puede delimitar 
+    public class SendRequest<T, U> where T : IRequestable where U : IBebidaAlcoholica
     {
         private HttpClient _client = new HttpClient();
         //Se crea una clase que funcionara con cualquier clase que reciba
-        public async Task<T> Send (T model)
+        public async Task<T> Send (T model )
         {
             string url = "https://jsonplaceholder.typicode.com/posts";
 
@@ -33,7 +37,7 @@ namespace ConsoleApp1.Service
                 //si es exitoso regresa el postResult
                 return postResult;
             }
-            //en caso de que falle se manda llamar a default
+            //En caso de que falle se manda llamar a default ya que no se puede regresar un null
             return default(T);
         }
     }
