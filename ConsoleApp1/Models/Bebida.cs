@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fundamentos.Models
 {
-    internal class Bebida
+    public class Bebida
     {
 
         public string Nombre { get; set; }

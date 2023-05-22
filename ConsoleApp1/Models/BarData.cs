@@ -1,20 +1,21 @@
-﻿using Fundamentos.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Fundamentos.Models;
 
 namespace ConsoleApp1.Models
 {
-    public class Bar
+    public class BarData
     {
         public string Nombre { get; set; }
-        public List<Cerveza> cervezas = new List<Cerveza>();
+        public List<Bebida> bebidas = new List<Bebida>();
 
-        public Bar(string Nombre) 
-        { 
+        public BarData(string Nombre)
+        {
             this.Nombre = Nombre;
         }
+
     }
 }
