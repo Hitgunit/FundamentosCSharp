@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Errors\BeerNotFoundException.cs" />
     <Compile Include="Models\Bar.cs" />
     <Compile Include="Models\BarData.cs" />
     <Compile Include="Models\Bebida.cs" />

@@ -12,6 +12,7 @@ using ConsoleApp1.Models;
 using Fundamentos.Models;
 using System.ComponentModel.Design;
 using ConsoleApp1.Service;
+using ConsoleApp1.Errors;
 
 namespace ConsoleApp1
 {
@@ -38,6 +39,11 @@ namespace ConsoleApp1
             catch (FieldAccessException ex)
             {
                 Console.WriteLine("Exception 2");
+            }
+            //El catch personalizado
+            catch (BeerNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             //Este catch se utiliza para tener una excepcion no contemplada
             catch (Exception ex)

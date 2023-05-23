@@ -1,4 +1,5 @@
-﻿using Fundamentos.Models;
+﻿using ConsoleApp1.Errors;
+using Fundamentos.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,9 @@ namespace ConsoleApp1.Service
         {
             var cerveza = (from d in cervezas
                           where d.Nombre == Nombre
-                          select d).First();
+                          select d).FirstOrDefault();
+            if (cerveza == null)
+                throw new BeerNotFoundException("La cerveza se ha terminado");
 
             return cerveza.Cantidad;
         }
