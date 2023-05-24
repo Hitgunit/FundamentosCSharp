@@ -18,43 +18,22 @@ namespace ConsoleApp1
 {
      class Program
     {
+        public delegate void Mostrar(string cadena);
         static async Task Main(string[] args)
         {
-            //Si todo sale bien se imprime todo lo que tiene el try
-            try
-            {
+            Mostrar mostrar = Show;
+            HacerAlgo(mostrar);
+        }
 
-                var searcherBeer = new SeracherBeer();
-                var cantidad = searcherBeer.GetCantidad("Pluto");
-                Console.WriteLine("Excelente");
-
-            }
-            //Si no sale como se planea, un catch lo toma para que no se rompa el programa
-            //Se puede tener varios catch de distintos parametros
-            catch (InvalidOperationException ex)
-            {
-                Console.WriteLine("Exception 1");
-            }
-            //Este seria otro catch con otro parametro
-            catch (FieldAccessException ex)
-            {
-                Console.WriteLine("Exception 2");
-            }
-            //El catch personalizado
-            catch (BeerNotFoundException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            //Este catch se utiliza para tener una excepcion no contemplada
-            catch (Exception ex)
-            {
-                Console.WriteLine("Exception all");
-            }
-            //el finally siempre se ejecuta sin importra el resultado, sirve para cerrar por completo la operación
-            finally 
-            { 
-                Console.WriteLine("Siempre se ejecuta");
-            }
+        public static void HacerAlgo(Mostrar funcionFinal)
+        {
+            Console.WriteLine("Hago algo");
+            funcionFinal("Se envio desde otra funcion");
+        }
+        
+        public static void Show(string cad)
+        {
+            Console.Write("Hola soy un delegado" + cad);
         }
 
         
