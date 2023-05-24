@@ -16,25 +16,36 @@ using ConsoleApp1.Errors;
 
 namespace ConsoleApp1
 {
-     class Program
+    class Program
     {
-        public delegate void Mostrar(string cadena);
-        static async Task Main(string[] args)
+
+        public class Beer
         {
-            Mostrar mostrar = Show;
-            HacerAlgo(mostrar);
+            public string Name { get; set; }
+            public int Alcohol { get; set; }
+        }
+        static void Main(string[] args)
+        {
+
+            var beers = new List<Beer>(){
+                new Beer() { Alcohol = 1, Name = "Jesus" },
+                new Beer() { Alcohol = 1, Name = "Pablo" },
+                new Beer() { Alcohol = 1, Name = "Chuy" },
+                new Beer() { Alcohol = 1, Name = "Nino" }
+
+        };
+
+            ShowBeerThatMakesMeDrunk(beers, x => x.Alcohol >= 8);
+
         }
 
-        public static void HacerAlgo(Mostrar funcionFinal)
+        static void ShowBeerThatMakesMeDrunk(List<Beer> beers, Predicate<Beer> condition)
         {
-            Console.WriteLine("Hago algo");
-            funcionFinal("Se envio desde otra funcion");
+            var evilBeers = beers.FindAll(condition);
+            evilBeers.ForEach(beer => Console.WriteLine(beer.Name));
         }
-        
-        public static void Show(string cad)
-        {
-            Console.Write("Hola soy un delegado" + cad);
-        }
+
+
 
         
     }
